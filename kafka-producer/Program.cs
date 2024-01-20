@@ -61,7 +61,7 @@ public class Program
                 try
                 {
                     // Note: Awaiting the asynchronous produce request below prevents flow of execution
-                    // from proceeding until the acknowledgement from the broker is received (at the 
+                    // from proceeding until the acknowledgment from the broker is received (at the 
                     // expense of low throughput).
                     var deliveryReport = await producer.ProduceAsync(
                         topicName, new Message<string, string> { Key = key, Value = val });

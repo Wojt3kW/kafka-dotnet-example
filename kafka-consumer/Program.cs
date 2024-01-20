@@ -38,7 +38,7 @@ public class Program
                 }
                 catch (ConsumeException e)
                 {
-                    Console.WriteLine($"Error occured: {e.Error.Reason}");
+                    Console.WriteLine($"Error occurred: {e.Error.Reason}");
                 }
             }
         }
