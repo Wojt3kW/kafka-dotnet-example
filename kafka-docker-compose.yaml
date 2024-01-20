@@ -4,6 +4,7 @@ name: "kafka-dotnet-example"
 services:
   zookeeper:
     image: docker.io/bitnami/zookeeper:3.8.1
+    container_name: zookeeper
     ports:
       - 2181:2181
     volumes:
@@ -15,6 +16,7 @@ services:
 
   kafka:
     image: docker.io/bitnami/kafka:3.4.1
+    container_name: kafka
     ports:
       - 9093:9093
     volumes:
@@ -37,6 +39,7 @@ services:
  # create kafka topic
   kafka-init:
     image: docker.io/bitnami/kafka:3.4.1
+    container_name: kafka-init
     depends_on:
       kafka:
         condition: service_started
@@ -56,6 +59,7 @@ services:
 
   akhq:
     image: tchiotludo/akhq:0.24.0
+    container_name: akhq
     environment:
       AKHQ_CONFIGURATION: |
         akhq:
