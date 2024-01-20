@@ -19,6 +19,6 @@ if %errorlevel% EQU 0 (
 
 echo Running docker compose files.
 
-docker-compose -f kafka-docker-compose.yaml up
+docker-compose --env-file .env -f kafka-docker-compose.yaml up
 
 echo Done!

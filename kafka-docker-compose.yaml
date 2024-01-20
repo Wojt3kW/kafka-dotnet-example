@@ -1,12 +1,13 @@
-version: '3.8'
+version: "3.9"
+name: "kafka-dotnet-example"
 
 services:
   zookeeper:
     image: docker.io/bitnami/zookeeper:3.8.1
     ports:
-      - "2181:2181"
+      - 2181:2181
     volumes:
-      - '/c/kafka-demo/zookeeper:/bitnami/zookeeper'
+      - ${ZOOKEEPER_DATA_DIR}:/bitnami/zookeeper
     environment:
       - ALLOW_ANONYMOUS_LOGIN=yes
     networks:
@@ -14,10 +15,10 @@ services:
 
   kafka:
     image: docker.io/bitnami/kafka:3.4.1
-    volumes:
-      - '/c/kafka-demo/kafka:/bitnami/kafka'
     ports:
-      - "9093:9093"
+      - 9093:9093
+    volumes:
+      - ${KAFKA_DATA_DIR}:/bitnami/kafka
     environment:
       - ALLOW_PLAINTEXT_LISTENER=yes
       - KAFKA_ENABLE_KRAFT=no
